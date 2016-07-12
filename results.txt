@@ -1,0 +1,16 @@
+
+[0m[0m
+[0m  Calculate[0m
+[0m    GetPrice()[0m
+[2K[0G    [32m  √[0m[90m should get the price from the cost using amount markup type[0m
+[2K[0G    [32m  √[0m[90m should get the price from the cost using percent markup type[0m
+[0m    GetCost()[0m
+[2K[0G    [32m  √[0m[90m should get the cost from the price using amount margin type[0m
+[2K[0G    [32m  √[0m[90m should get the cost from the price using percent margin type[0m
+[0m    GetMarkup()[0m
+[2K[0G    [32m  √[0m[90m should get the markup from the price and cost for amount markup[0m
+[2K[0G    [32m  √[0m[90m should get the markup from the price and cost for percent markup[0m
+
+
+[92m [0m[32m 6 passing[0m[90m (41ms)[0m
+
