@@ -76,13 +76,67 @@ describe("Calculate", () =>
 
     describe("ConvertCurrency()", () =>
     {
-        it("should correctly convert a value using a specified exchange rate", (done) =>
+        it("should correctly convert a positive value using a specified exchange rate", (done) =>
         {
             let value = 55.96;
             let rate = 1.4335;
             var result = Calculate.ConvertCurrency(value, rate);
 
             chai.expect(result).to.equal(80.21866);
+            done();
+        });
+
+        it("should correctly convert a negative value using a specified exchange rate", (done) =>
+        {
+            let value = -235.60;
+            let rate = 0.75;
+            var result = Calculate.ConvertCurrency(value, rate);
+
+            chai.expect(result).to.equal(-176.7);
+            done();
+        });
+    });
+
+    describe("Round()", () =>
+    {
+        let value = 1.34562;
+
+        it("should round to a whole number if decimal places is set to zero", (done) =>
+        {
+            let decimalPlaces = 0;
+
+            var result = Calculate.Round(value, decimalPlaces);
+
+            chai.expect(result).to.equal(1);
+            done();
+        });
+
+        it("should correctly round down a value given a specified number of decimal places", (done) =>
+        {
+            let decimalPlaces = 4;
+
+            var result = Calculate.Round(value, decimalPlaces);
+
+            chai.expect(result).to.equal(1.3456);
+            done();
+        });
+
+        it("should correctly round up a value given a specified number of decimal places", (done) =>
+        {
+            let decimalPlaces = 3;
+            var result = Calculate.Round(value, decimalPlaces);
+
+            chai.expect(result).to.equal(1.346);
+            done();
+        });
+
+        it("should return the full value if the specified number of decimal places is greater than the number of decimals in the value", (done) =>
+        {
+            let decimalPlaces = 8;
+
+            var result = Calculate.Round(value, decimalPlaces);
+
+            chai.expect(result.toString()).to.equal("1.34562");
             done();
         });
     });

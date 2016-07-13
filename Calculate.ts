@@ -8,6 +8,8 @@ class Calculate
     */
     public static GetPrice(cost: number, markup: number, markupType: MarkupType): number
     {
+        // TODO: Multiple Markup Types
+
         switch (markupType)
         {
             case MarkupType.Amount:
@@ -38,7 +40,7 @@ class Calculate
     /**
     * Calculate the markup from the price and cost
     */
-    public static GetMarkup(price: number, cost: number, markupType: MarkupType)
+    public static GetMarkup(price: number, cost: number, markupType: MarkupType): number
     {
         switch (markupType)
         {
@@ -54,14 +56,22 @@ class Calculate
     /**
     * Calculate a currency value using a specified rate
     */
-    public static ConvertCurrency(value: number, rate: number)
+    public static ConvertCurrency(value: number, rate: number): number
     {
         return value * rate;
     }
 
-    // TODO: Multiple Markup Types
+    /**
+    * Round a value to a specified number of decimal places
+    */
+    public static Round(value: number, decimalPlaces: number): number
+    {
+        if (decimalPlaces === 0)
+        {
+            return Math.round(value);
+        }
 
-    // TODO: Rounding
-
+        return Number(value.toFixed(decimalPlaces));
+    }
 }
 export = Calculate;
