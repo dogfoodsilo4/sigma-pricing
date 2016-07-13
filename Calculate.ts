@@ -51,7 +51,13 @@ class Calculate
         }
     }
 
-    // TODO: Currency
+    /**
+    * Calculate a currency value using a specified rate
+    */
+    public static ConvertCurrency(value: number, rate: number)
+    {
+        return value * rate;
+    }
 
     // TODO: Multiple Markup Types
 

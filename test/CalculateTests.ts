@@ -74,4 +74,17 @@ describe("Calculate", () =>
         });
     });
 
+    describe("ConvertCurrency()", () =>
+    {
+        it("should correctly convert a value using a specified exchange rate", (done) =>
+        {
+            let value = 55.96;
+            let rate = 1.4335;
+            var result = Calculate.ConvertCurrency(value, rate);
+
+            chai.expect(result).to.equal(80.21866);
+            done();
+        });
+    });
+
 });
